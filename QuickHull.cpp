@@ -43,6 +43,7 @@ namespace quickhull {
 	
 	template<typename FloatType>
 	HalfEdgeMesh<FloatType, size_t> QuickHull<FloatType>::getConvexHullAsMesh(const FloatType* vertexData, size_t vertexCount, bool CCW, FloatType epsilon) {
+		static_cast<void>(CCW);
 		VertexDataSource<FloatType> vertexDataSource((const vec3*)vertexData,vertexCount);
 		buildMesh(vertexDataSource, epsilon);
 		return HalfEdgeMesh<FloatType, size_t>(m_mesh, m_vertexData);
